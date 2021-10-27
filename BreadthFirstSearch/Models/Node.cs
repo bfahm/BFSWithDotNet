@@ -20,5 +20,10 @@ namespace BreadthFirstSearch.Models
             Name = name,
             Neighbors = adjacencies.ToList()
         };
+
+        public override string ToString()
+        {
+            return Name;
+        }
     }
 }
