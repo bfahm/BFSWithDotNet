@@ -6,19 +6,22 @@ namespace BreadthFirstSearch
 {
     public class Parser
     {
-        public static void Parse(string nodes, string adjacencies)
+        public static List<Node> Parse(string nodes, string adjacencies)
         {
+            var parsedNodes = ParseNodes(nodes);
+            ParseAdjacencies(adjacencies, parsedNodes);
 
+            return parsedNodes;
         }
 
-        protected static IEnumerable<Node> ParseNodes(string nodesInput)
+        protected static List<Node> ParseNodes(string nodesInput)
         {
             var cleanedInput = nodesInput.Clean();
             var nodeNames = cleanedInput.Split(",");
-            return nodeNames.Select(n => Node.FromName(n));
+            return nodeNames.Select(n => Node.FromName(n)).ToList();
         }
 
-        protected static void ParseAdjacencies(string adjacenciesInput, IEnumerable<Node> parsedNodes)
+        protected static void ParseAdjacencies(string adjacenciesInput, List<Node> parsedNodes)
         {
             var cleanedInput = adjacenciesInput.Clean();
 
