@@ -12,7 +12,7 @@ namespace BreadthFirstSearchTests
     {
         [Theory]
         [MemberData(nameof(ParseNodes_ReturnsCorrectListOfNodes_Data))]
-        public void ParseNodes_ReturnsCorrectListOfNodes(string input, List<SimpleNode> expectedOutput)
+        public void ParseNodes_ReturnsCorrectListOfNodes(string input, List<Node> expectedOutput)
         {
             // Arrange
 
@@ -25,12 +25,12 @@ namespace BreadthFirstSearchTests
 
         public static IEnumerable<object[]> ParseNodes_ReturnsCorrectListOfNodes_Data()
         {
-            yield return new object[] { "A,B,C", new List<SimpleNode> { SimpleNode.FromName("A"), SimpleNode.FromName("B"), SimpleNode.FromName("C") } };
-            yield return new object[] { "A, B, C", new List<SimpleNode> { SimpleNode.FromName("A"), SimpleNode.FromName("B"), SimpleNode.FromName("C") } };
-            yield return new object[] { "0,1,2", new List<SimpleNode> { SimpleNode.FromName("0"), SimpleNode.FromName("1"), SimpleNode.FromName("2") } };
-            yield return new object[] { "0, 1, 2", new List<SimpleNode> { SimpleNode.FromName("0"), SimpleNode.FromName("1"), SimpleNode.FromName("2") } };
-            yield return new object[] { "XYZ,ABC,QWE", new List<SimpleNode> { SimpleNode.FromName("XYZ"), SimpleNode.FromName("ABC"), SimpleNode.FromName("QWE") } };
-            yield return new object[] { "XYZ , ABC , QWE", new List<SimpleNode> { SimpleNode.FromName("XYZ"), SimpleNode.FromName("ABC"), SimpleNode.FromName("QWE") } };
+            yield return new object[] { "A,B,C", new List<Node> { Node.FromName("A"), Node.FromName("B"), Node.FromName("C") } };
+            yield return new object[] { "A, B, C", new List<Node> { Node.FromName("A"), Node.FromName("B"), Node.FromName("C") } };
+            yield return new object[] { "0,1,2", new List<Node> { Node.FromName("0"), Node.FromName("1"), Node.FromName("2") } };
+            yield return new object[] { "0, 1, 2", new List<Node> { Node.FromName("0"), Node.FromName("1"), Node.FromName("2") } };
+            yield return new object[] { "XYZ,ABC,QWE", new List<Node> { Node.FromName("XYZ"), Node.FromName("ABC"), Node.FromName("QWE") } };
+            yield return new object[] { "XYZ , ABC , QWE", new List<Node> { Node.FromName("XYZ"), Node.FromName("ABC"), Node.FromName("QWE") } };
         }
 
         [Theory]

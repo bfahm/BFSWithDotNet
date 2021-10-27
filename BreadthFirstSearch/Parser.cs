@@ -18,7 +18,7 @@ namespace BreadthFirstSearch
         {
             var cleanedInput = nodesInput.Clean();
             var nodeNames = cleanedInput.Split(",");
-            return nodeNames.Select(n => SimpleNode.FromName(n)).Select(sn => Node.FromSimpleNode(sn));
+            return nodeNames.Select(n => Node.FromName(n));
         }
 
         protected static void ParseAdjacencies(string adjacenciesInput, IEnumerable<Node> parsedNodes)
@@ -33,15 +33,14 @@ namespace BreadthFirstSearch
                 var start = parsedAdjacency[0];
                 var end = parsedAdjacency[1];
 
-                parsedNodes.Single(n => n.Name == start.Name).Neighbors.TryAdd(end);
-                parsedNodes.Single(n => n.Name == end.Name).Neighbors.TryAdd(start);
+                parsedNodes.Single(n => n.Name == start).Neighbors.TryAdd(end);
+                parsedNodes.Single(n => n.Name == end).Neighbors.TryAdd(start);
             }
         }
 
-        private static IEnumerable<SimpleNode> ParseAdjacency(string adjacencentElement)
+        private static IEnumerable<string> ParseAdjacency(string adjacencentElement)
         {
-            var nodes = adjacencentElement.Split("-");
-            return nodes.Select(n => SimpleNode.FromName(n));
+            return adjacencentElement.Split("-").ToList();
         } 
     }
 }

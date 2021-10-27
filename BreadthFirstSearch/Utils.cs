@@ -17,9 +17,9 @@ namespace BreadthFirstSearch
 
     public static class ListUtils
     {
-        public static void TryAdd(this List<SimpleNode> list, SimpleNode toBeAdded)
+        public static void TryAdd(this List<string> list, string toBeAdded)
         {
-            var listAlreadyContainsNode = list.Any(l => l.Name == toBeAdded.Name);
+            var listAlreadyContainsNode = list.Any(l => l == toBeAdded);
             if (!listAlreadyContainsNode)
                 list.Add(toBeAdded);
         }
