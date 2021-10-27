@@ -1,9 +1,6 @@
 ﻿using BreadthFirstSearch.Models;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BreadthFirstSearch
 {
@@ -26,8 +23,8 @@ namespace BreadthFirstSearch
             var cleanedInput = adjacenciesInput.Clean();
 
             var adjacencies = cleanedInput.Split(",");
-            
-            foreach(var adjacency in adjacencies)
+
+            foreach (var adjacency in adjacencies)
             {
                 var parsedAdjacency = ParseAdjacency(adjacency).ToList();
                 var start = parsedAdjacency[0];
@@ -41,6 +38,6 @@ namespace BreadthFirstSearch
         private static IEnumerable<string> ParseAdjacency(string adjacencentElement)
         {
             return adjacencentElement.Split("-").ToList();
-        } 
+        }
     }
 }
