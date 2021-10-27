@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "BreadthFirstSearch": {
+      "commandName": "Project",
+      "commandLineArgs": "-demo on"
+    }
+  }
+}
